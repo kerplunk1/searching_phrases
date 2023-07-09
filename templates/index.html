@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск фразы</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <section class="main_section">
+        <div class="container">
+            <h1>Загрузите PDF файл и введите фразу которую нужно найти</h1>
+            <p>Upload the PDF file and enter the phrase you are looking for.</p>
+            <div class="upload_rectangle">
+                <div class="img_block">
+                    <img src="{{ url_for('static', filename='img/pdf_upload.png')}}" alt="pdf_upload">
+                </div>
+                <div class="form_block">
+                    <form action="/result" method="post" enctype="multipart/form-data">
+                        <input type="file" name="filename" class="upload_input" id="file", accept=".pdf" required>
+                        <textarea name="phrase" class="phrase_input" id="phrase" placeholder="Введите фразу..." required></textarea>
+                        <button type="submit">Найти</button>
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </section>
+</body>
+</html>
